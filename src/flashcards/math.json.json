@@ -1,0 +1,12 @@
+{
+  "cards": [
+    {"+": "Addition"},
+    {"-": "Subtraction"},
+    {"*": "Multiplication"},
+    {"/": "Division"},
+    {"=": "Equals"},
+    {"√": "Square Root"},
+    {"π": "Pi"}
+  ]
+}
+
