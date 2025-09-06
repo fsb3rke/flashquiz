@@ -36,10 +36,16 @@ fn main() -> anyhow::Result<()> {
     println!("\n==> Selected File: {}", file);
 
     let path = Path::new(file);
-    let flashcards = fs_utils::read_flashcard_file(path)?;
-
-    flashcard::show_flashcards(&flashcards);
-    quiz::start_quiz(&flashcards);
+    
+    match fs_utils::read_flashcard_file(path) {
+        Ok(flashcards) => {
+            flashcard::show_flashcards(&flashcards);
+            quiz::start_quiz(&flashcards);
+        }
+        Err(e) => {
+            println!("JSON corrupted: {}", e);
+        }
+    }
 
     Ok(())
 }
